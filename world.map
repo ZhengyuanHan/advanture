@@ -1,0 +1,131 @@
+[
+ {"name": "snowfield",
+  "desc": "You are in a large white snowfield, only one path points directly to the north.",
+  "exits": { "north": 1},
+  "items": ["scarf", "screen fragment: shop"],
+  "id": 0
+ }
+,
+ {"name": "branch road",
+  "desc": "Now you face a branch road, you notice some footprints appear on the east side. ",
+  "environment_desc": "There is a statue in the middle, it looks very cold, its eyes can't stop moving.",
+  "environment_desc_backup": ["There is a statue in the middle, it looks very cold, its eyes can't stop moving.", "You hang the scarf on the statue, its eyes stop moving and stare to the west direction."],
+  "exits": { "west": 2, "east": 3, "south": 0 },
+  "id": 1
+ }
+,
+ {"name": "entrance of a house",
+  "desc": "You are standing in front of an entrance of a house. You know this house, it once be a lab of your institute.",
+  "exits": { "east": 1, "north": 4 },
+  "items": ["house key"],
+  "id": 2
+ }
+,
+ {"name": "underground street",
+  "desc": "You follow the footprint and find yourself in a street where underground. It's too late now, you can't see anybody in the street.",
+  "npc": {"name": "cat", "dialog": "mew...(I'm hungry, if you give me something to eat, I will give you my treasure.)", "answer": "(The cat runs into dark and holds a key back to you)", "require": "cat food", "give_back": "internet cafe key"},
+  "npc_dialog_after_giving": "mew...(Thank you.)",
+  "exits": { "west": 1, "south": 14, "north": 15, "east": 16 },
+  "id": 3
+ }
+,
+ {"name": "living room",
+  "desc": "You stand in the living room.",
+  "environment_desc": "There is a computer in the living room, which can transport you somewhere, but there is nothing on the screen, you should to find screen fragments and complete it. Just DROP all screen fragments.",
+  "special_desc": "You complete all the screen fragment and be transported to somewhere.",
+  "unlock_condition": "house key",
+  "exits": { "south": 2, "north": 6, "west": 5, "east": 7},
+  "screen_fragments": [],
+  "id": 4
+ }
+ ,
+ {"name": "kitchen",
+  "desc": "You are in the kitchen, it seems not be used for a while.",
+  "exits": { "east": 4, "south": 11 },
+  "items": ["screen fragment: sky"],
+  "id": 5
+ }
+ ,
+ {"name": "balcony",
+  "desc": "There are many plants growing on the balcony.",
+  "exits": { "south": 4 },
+  "items": ["bedroom2 key"],
+  "id": 6
+ }
+ ,
+ {"name": "corridor",
+  "desc": "Here is the corridor connect some rooms.",
+  "exits": { "west": 4, "east": 10, "north": 9, "south": 8 },
+  "id": 7
+ }
+ ,
+ {"name": "bedroom1",
+  "desc": "It used to be a bedroom, but now it looks like someplace to do research.",
+  "exits": { "north": 7 },
+  "items": ["screen fragment: road"],
+  "id": 8
+ }
+ ,
+ {"name": "toilet",
+  "desc": "Standing in the toilet, you suddenly feel yourself want to urinate.",
+  "exits": { "south": 7 },
+  "items": ["storeroom key"],
+  "id": 9
+ }
+ ,
+ {"name": "bedroom2",
+  "desc": "Here is a bedroom you used to sleep before.",
+  "unlock_condition": "bedroom2 key",
+  "exits": { "west": 7 },
+  "items": ["screen fragment: mountain"],
+  "id": 10
+ }
+ ,
+ {"name": "storeroom",
+  "desc": "You are now in somewhere to store food and other things.",
+  "unlock_condition": "storeroom key",
+  "exits": { "north": 5 },
+  "items": ["screen fragment: taxi"],
+  "id": 11
+ }
+ ,
+ {"name": "road",
+  "desc": "You look around, find this place is same to what on the screen after completing all screen fragments.",
+  "environment_desc": "There is a women wandering around her car, she looks like need help.",
+  "npc": {"name": "driver", "dialog": "Excuse me, my car was broken. Can you deliver tools from that shop to me please? I feel worried about leaving my little sister along here. ", "answer": "Thank you. Oh, you want to go back to this place? I can give you a ride. Let's go.", "require": "tools"},
+  "win_dialog": "You finally find your way back to your home. Congratulations! You win!",
+  "items": ["flower"],
+  "exits": { "east": 13 },
+  "id": 12
+ }
+ ,
+ {"name": "shop",
+  "desc": "A shop, customers can borrow fixing tools freely.",
+  "items": ["tools"],
+  "exits": { "west": 12 },
+  "id": 13
+ }
+ ,
+ {"name": "bank",
+  "desc": "A bank, the door is locked but you can still use the ATM outside.",
+  "npc": {"name": "ATM", "dialog": "PLEASE SHOW YOUR DEBIT CARD OR CHECK TO WITHDRAW MONEY.", "answer": "THANK YOU. WE HOPE YOU ENJOY THE SERVICE.", "require": "check", "give_back": "money"},
+  "npc_dialog_after_giving": "PLEASE SHOW YOUR DEBIT CARD OR CHECK TO WITHDRAW MONEY.",
+  "exits": { "north": 3 },
+  "id": 14
+ }
+ ,
+ {"name": "mini mart",
+  "desc": "Even a mini mart, it is closed in this time.",
+  "environment_desc": "The owner put some old products outside the store, free for all customers, or you can drop money here to buy it, if you like to do so.",
+  "environment_desc_backup": ["The owner put some old products outside the store, free for all customers, or you can drop money here to buy it, if you like to do so.", "The action putting money on a desk allow you remember you had done this before with your friend, he told you about the internet cafe here. It has a computer which can transport you to another place, but you can make sure it will not make the situation better. Oh, don't forget pick up something you want after payment."],
+  "items": ["cat food"],
+  "exits": { "south": 3 },
+  "id": 15
+ }
+ ,
+ {"name": "internet cafe",
+  "unlock_condition": "internet cafe key",
+  "fail_dialog": "You rush into the internet cafe and find a computer to transport you. However, after a while you find yourself stand on the top of a mountain. It seems much further to your home. You failed, what a shame...",
+  "id": 16
+ }
+]
