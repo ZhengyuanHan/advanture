@@ -17,12 +17,12 @@ I tested my code by using different commands-including baseline, extensions, and
 bugs and issues:
 
 1. I have no idea about why checking EOF and continue loop function performances diffierent between IDE and terminal.
-2. I want the game still works when user input many whitespaces between give/get/drop commmand and item name. However, when I try to use regular expression, I find that regular expression does not allow infinity marks like * or + in look behind.
+2. I don't know why I cannot pass the last testcase.
 
 difficult issue I've solved:
 
-1. Using regular expression to parse users' input to make case and arbitrary whitespace does npt effect the command.
-2. Create a desc_backup list in map to allow users' actions sometimes chang the room's description.
+1. Using regular expression to parse users' input, so the case and arbitrary whitespace does not effect the command.
+2. Do not use exact direction name - like north or west - to deal with the 'go' verb.
 
 extensions:
 
