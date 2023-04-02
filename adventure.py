@@ -24,8 +24,10 @@ def print_room_info(cur_room):
     if 'npc' in cur_room:
         print("npc: " + cur_room['npc']['name'] + '\n')
 
-    for exit_dir in cur_room['exits'].keys():
-        exit_str = exit_str + ' ' + exit_dir
+    if 'exits' in cur_room and len(cur_room['exits']) > 0:
+
+        for exit_dir in cur_room['exits'].keys():
+            exit_str = exit_str + ' ' + exit_dir
 
     print(exit_str + '\n')
 
@@ -53,24 +55,29 @@ if __name__ == '__main__':
                 print("Sorry, you need to 'go' somewhere.")
                 print('What would you like to do?', end=" ")
 
-            elif re.match(r'\s*go\s*(north|south|west|east)\s*$', verb, re.I):
-                direction = re.search(r'(north|south|west|east)$', verb, re.I).group().lower()
+            elif re.match(r'\s*go\s*(north|south|west|east|northwest|northeast|southwest|southeast)\s*$', verb, re.I):
+                direction = re.search(r'(north|south|west|east|northwest|northeast|southwest|southeast)$', verb, re.I).group().lower()
                 if direction in cur_room['exits']:
                     room_id = cur_room['exits'][direction]
 
-                    if "unlock_condition" in whole_map[room_id] and whole_map[room_id][
-                        "unlock_condition"] not in inventory_list:
-                        print('The direction is locked, you should find the key first.')
-                        print('What would you like to do?', end=" ")
-                    else:
-                        if whole_map[room_id]["name"] == "internet cafe":
-                            print(whole_map[room_id]['fail_dialog'])
-                            break
+                    if 0 <= room_id < len(whole_map):
+                        if "unlock_condition" in whole_map[room_id] and whole_map[room_id]["unlock_condition"] not in inventory_list:
+                            print('The direction is locked, you should find the key first.')
+                            print('What would you like to do?', end=" ")
+                        else:
+                            if whole_map[room_id]["name"] == "internet cafe":
+                                print(whole_map[room_id]['fail_dialog'])
+                                break
 
-                        print('You go ' + direction + '.' + '\n')
-                        cur_room = whole_map[room_id]
-                        print_room_info(cur_room)
+                            print('You go ' + direction + '.' + '\n')
+                            cur_room = whole_map[room_id]
+                            print_room_info(cur_room)
+                            print('What would you like to do?', end=" ")
+
+                    else:
+                        print("Room does not exist.")
                         print('What would you like to do?', end=" ")
+
                 else:
                     print("There's no way to go " + direction + ".")
                     print('What would you like to do?', end=" ")
