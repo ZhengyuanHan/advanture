@@ -63,7 +63,7 @@ if __name__ == '__main__':
                         print('The direction is locked, you should find the key first.')
                         print('What would you like to do?', end=" ")
                     else:
-                        if room_id == 16:
+                        if whole_map[room_id]["name"] == "internet cafe":
                             print(whole_map[room_id]['fail_dialog'])
                             break
 
