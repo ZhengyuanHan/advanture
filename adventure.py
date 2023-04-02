@@ -1,6 +1,7 @@
 import json
 import re
 import sys
+import traceback
 
 
 def print_room_info(cur_room):
@@ -50,8 +51,6 @@ if __name__ == '__main__':
                 print("Sorry, you need to 'go' somewhere.")
                 print('What would you like to do?', end=" ")
 
-            # r'\s*go\s*(north|south|west|east|northwest|northeast|southwest|southeast)\s*$'
-            # r'(north|south|west|east|northwest|northeast|southwest|southeast)$'
             elif re.match(r'\s*go\s*.+\s*$', verb, re.I):
                 direction = re.search(r'\s*go\s*(.+)\s*$', verb, re.I).group(1).lower()
                 if direction in cur_room['exits']:
@@ -175,3 +174,7 @@ if __name__ == '__main__':
             print("Use 'quit' to exit.")
             print('What would you like to do?', end=" ")
             continue
+
+        except KeyboardInterrupt:
+            print('^C' + traceback.format_exc())
+            break
