@@ -1,0 +1,34 @@
+[
+ {"name": "hall",
+  "desc": "You are in a big hall.",
+  "exits": { "north": 1, "west": 2, "southwest": 3, "east": 4 },
+  "items": ["m size battery"],
+  "npc": {"name": "staff", "dialog": "Hello. The power system is out of gear. Please fix it as soon as possible. The system room is in the north direction. There is the battery nearby, but I am not sure if it is really work. You are professional, you can judge it by yourself."}
+ }
+,
+ {"name": "system room",
+  "win_desc": "You enter the system room, use the correct size battery and fix the power system. Congratulations! You win!",
+  "lose_desc1": "You enter the system room, then you realize that you bring nothing to fix the power system. You fail the task.",
+  "lose_desc2": "You enter the system room, then you find the battery you took from the hall cannot be used in the power system. Perhaps you need to check around more before. Anyway, you fail the task."
+ }
+,
+ {"name": "stockroom",
+  "desc": "You are in a stockroom, there are a lot of things inside.",
+  "exits": { "east": 0 },
+  "items": ["drinks", "screw", "gear", "lube"],
+  "unlock_condition": "stockroom key"
+ }
+,
+ {"name": "guard room",
+  "desc": "Here is the guard room, you can borrow whatever you need.",
+  "exits": { "northeast": 0 },
+  "items": ["stockroom key", "flashlight"]
+ }
+ ,
+ {"name": "grocery",
+  "desc": "You enter the grocery and try to find something useful.",
+  "exits": { "west": 0 },
+  "npc": {"name": "tradesman", "dialog": "Well, you want a 'h size battery' to fix the power system? Yes, I have it, so can you bring me some drinks? I'm so thirsty and I cannot leave here. Just go west from the hall then you can find it.", "answer": "Thank you, here you are.", "require": "drinks", "give_back": "h size battery"},
+  "npc_dialog_after_giving": "Good luck."
+ }
+]
