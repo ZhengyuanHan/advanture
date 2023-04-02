@@ -16,7 +16,7 @@ I tested my code by using different commands-including baseline, extensions, and
 
 bugs and issues:
 
-1. I have no idea about continue receiving users' input if the program faces EOF.
+1. I have no idea about why checking EOF and continue loop function performances diffierent between IDE and terminal.
 2. I want the game still works when user input many whitespaces between give/get/drop commmand and item name. However, when I try to use regular expression, I find that regular expression does not allow infinity marks like * or + in look behind.
 
 difficult issue I've solved:
