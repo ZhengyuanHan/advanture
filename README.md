@@ -26,8 +26,9 @@ difficult issue I've solved:
 
 extensions:
 
-1. Drop: Players may drop their holding items wherever they want, but when they drop their item in some specific situations, it will change the description of the room to give players some hints.
-2. Winning and losing condition: The game's aim is to find a correct way, so just follow the game and choose you route, if players finally enter the correct terminal, they will win, else, if players enter a wrong terminal, they will lose the game.
-3. NPC interaction: I put npcs in some rooms, game will tell players when they enter the room or each time they use 'look' command. Players can use 'talk' command to talk to them, or use 'give' command to give specific things to npcs for trading.
-4. Help: When players enter a wrong command, the game will tell them to use 'help' command for help. By using 'help' command, players can also know the background story and what is their final goal in this game.
-5. All extensions can take effect by reading my own mapfile: world.map, without effecting the baseline and the original loop.map.
+1. Drop: Players may input 'drop [item name]' to drop their holding items wherever they want, but when they drop their item in some specific situations, it will change the description of the room to give players some hints.
+2. Locked doors: Some rooms are locked, so players should hold keys to unlock the room. Just make sure the key inside plyers' inventory is OK.
+3. Winning and losing condition: The game's aim is to find a correct way, so just follow the game and choose you route, if players finally enter the correct terminal, they will win, else, if players enter a wrong terminal, they will lose the game.
+4. NPC interaction: I put npcs in some rooms, game will tell players when they enter the room or each time they use 'look' command. Players can use 'talk' command to talk to them, or use 'give' command to give specific things to npcs for trading.
+5. Help: When players enter a wrong command, the game will tell them to use 'help' command for help. By using 'help' command, players can also know the background story and what is their final goal in this game.
+6. All extensions can take effect by reading my own mapfile: world.map, without effecting the baseline and the original loop.map.
