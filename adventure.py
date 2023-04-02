@@ -110,7 +110,7 @@ if __name__ == '__main__':
                 print('What would you like to do?', end=" ")
 
             elif re.match(r'\s*get\s*.+\s*$', verb, re.I):
-                item_name = re.search(r'(?<=get\s).+', verb, re.I).group().lower()
+                item_name = re.search(r'\s*get\s*(.+)\s*$', verb, re.I).group(1).lower()
                 if 'items' in cur_room:
                     if item_name in cur_room['items']:
                         inventory_list.append(item_name)
