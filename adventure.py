@@ -174,7 +174,3 @@ if __name__ == '__main__':
             print("Use 'quit' to exit.")
             print('What would you like to do?', end=" ")
             continue
-
-        except KeyboardInterrupt:
-            print('^C' + traceback.format_exc())
-            break
