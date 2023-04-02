@@ -65,7 +65,7 @@ if __name__ == '__main__':
                         print(whole_map[room_id]['fail_dialog'])
                         break
 
-                    print('You go ' + direction)
+                    print('You go ' + direction + '.')
                     cur_room = whole_map[room_id]
                     print_room_info(cur_room)
                     print('What would you like to do?')
