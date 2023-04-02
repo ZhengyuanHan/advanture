@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
     cur_room = whole_map[0]
     print_room_info(cur_room)
-    print('What would you like to do?')
+    print('What would you like to do?', end=" ")
 
     # is_loop = 1
     # verb = input()
@@ -51,7 +51,7 @@ if __name__ == '__main__':
 
             if re.match(r'\s*go\s*$', verb, re.I):
                 print("Sorry, you need to 'go' somewhere.")
-                print('What would you like to do?')
+                print('What would you like to do?', end=" ")
 
             elif re.match(r'\s*go\s*(north|south|west|east)\s*$', verb, re.I):
                 direction = re.search(r'(north|south|west|east)$', verb, re.I).group().lower()
@@ -61,7 +61,7 @@ if __name__ == '__main__':
                     if "unlock_condition" in whole_map[room_id] and whole_map[room_id][
                         "unlock_condition"] not in inventory_list:
                         print('The direction is locked, you should find the key first.')
-                        print('What would you like to do?')
+                        print('What would you like to do?', end=" ")
                     else:
                         if room_id == 16:
                             print(whole_map[room_id]['fail_dialog'])
@@ -70,28 +70,28 @@ if __name__ == '__main__':
                         print('You go ' + direction + '.' + '\n')
                         cur_room = whole_map[room_id]
                         print_room_info(cur_room)
-                        print('What would you like to do?')
+                        print('What would you like to do?', end=" ")
                 else:
                     print("There's no way to go " + direction + ".")
-                    print('What would you like to do?')
+                    print('What would you like to do?', end=" ")
 
             elif re.match(r'\s*look\s*$', verb, re.I):
                 print_room_info(cur_room)
-                print('What would you like to do?')
+                print('What would you like to do?', end=" ")
 
             elif re.match(r'\s*inventory\s*$', verb, re.I):
                 if len(inventory_list) <= 0:
                     print("You're not carrying anything.")
-                    print('What would you like to do?')
+                    print('What would you like to do?', end=" ")
                 else:
                     print('Inventory:')
                     for hold in inventory_list:
-                        print(' ' + hold)
-                    print('What would you like to do?')
+                        print('  ' + hold)
+                    print('What would you like to do?', end=" ")
 
             elif re.match(r'\s*get\s*$', verb, re.I):
                 print("Sorry, you need to 'get' something.")
-                print('What would you like to do?')
+                print('What would you like to do?', end=" ")
 
             elif re.match(r'\s*get\s*.+\s*$', verb, re.I):
                 item_name = re.search(r'(?<=get\s).+', verb, re.I).group().lower()
@@ -104,17 +104,17 @@ if __name__ == '__main__':
                         if cur_room['name'] == "branch road":
                             cur_room['environment_desc'] = cur_room['environment_desc_backup'][0]
 
-                        print('What would you like to do?')
+                        print('What would you like to do?', end=" ")
                     else:
                         print("There's no " + item_name + " anywhere.")
-                        print('What would you like to do?')
+                        print('What would you like to do?', end=" ")
                 else:
                     print("There's no " + item_name + " anywhere.")
-                    print('What would you like to do?')
+                    print('What would you like to do?', end=" ")
 
             elif re.match(r'\s*drop\s*$', verb, re.I):
                 print("Sorry, you need to 'drop' something.")
-                print('What would you like to do?')
+                print('What would you like to do?', end=" ")
 
             elif re.match(r'\s*drop\s*.+\s*$', verb, re.I):
                 hold_name = re.search(r'(?<=drop\s).+', verb, re.I).group().lower()
@@ -137,21 +137,21 @@ if __name__ == '__main__':
                         cur_room = whole_map[12]
                         print_room_info(cur_room)
 
-                    print('What would you like to do?')
+                    print('What would you like to do?', end=" ")
                 else:
                     print("You are not hanging " + hold_name + ".")
-                    print('What would you like to do?')
+                    print('What would you like to do?', end=" ")
 
             elif re.match(r'\s*talk\s*$', verb, re.I):
                 if 'npc' in cur_room:
                     print(cur_room['npc']['name'] + ': ' + cur_room['npc']['dialog'])
                 else:
                     print("Nobody around here.")
-                    print('What would you like to do?')
+                    print('What would you like to do?', end=" ")
 
             elif re.match(r'\s*give\s*$', verb, re.I):
                 print("Sorry, you need to 'give' something.")
-                print('What would you like to do?')
+                print('What would you like to do?', end=" ")
 
             elif re.match(r'\s*give\s*.+\s*$', verb, re.I):
                 gift_name = re.search(r'(?<=give\s).+', verb, re.I).group().lower()
@@ -172,7 +172,7 @@ if __name__ == '__main__':
                             print('You get the ' + cur_room['npc']['give_back'] + '.')
                 else:
                     print("You are not hanging " + gift_name + ".")
-                    print('What would you like to do?')
+                    print('What would you like to do?', end=" ")
 
             elif re.match(r'\s*quit\s*$', verb, re.I):
                 print("Goodbye!")
@@ -193,13 +193,13 @@ if __name__ == '__main__':
                 print("give...")
                 print("quit")
                 print("help")
-                print('What would you like to do?')
+                print('What would you like to do?', end=" ")
 
             else:
                 print("Invalid command, please check your spell, or enter 'help' to get more information.")
-                print('What would you like to do?')
+                print('What would you like to do?', end=" ")
 
         except EOFError:
             print("Use 'quit' to exit.")
-            print('What would you like to do?')
+            print('What would you like to do?', end=" ")
             continue
