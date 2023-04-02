@@ -26,9 +26,7 @@ difficult issue I've solved:
 
 extensions:
 
-1. Drop: Players may input 'drop [item name]' to drop their holding items wherever they want, but when they drop their item in some specific situations, it will change the description of the room to give players some hints.
-2. Locked doors: Some rooms are locked, so players should hold keys to unlock the room. Just make sure the key inside plyers' inventory is OK.
-3. Winning and losing condition: The game's aim is to find a correct way, so just follow the game and choose you route, if players finally enter the correct terminal, they will win, else, if players enter a wrong terminal, they will lose the game.
-4. NPC interaction: I put npcs in some rooms, game will tell players when they enter the room or each time they use 'look' command. Players can use 'talk' command to talk to them, or use 'give' command to give specific things to npcs for trading.
-5. Help: When players enter a wrong command, the game will tell them to use 'help' command for help. By using 'help' command, players can also know the background story and what is their final goal in this game.
-6. All extensions can take effect by reading my own mapfile: world.map, without effecting the baseline and the original loop.map.
+1. Locked doors: Some rooms are locked,when players try to enter a locked room, they will recieve 'The direction is locked, you should find the key first.', so players should hold keys to unlock the room. Just make sure the key inside plyers' inventory is OK.
+2. Winning and losing condition: The game's aim is to use correct battery to fix a power system, when players hold 'h size battery' in invertory and enter the power room, they will win and quit the game. Else, holding wrong size battery and holding no battery will recieve different lossing feedback and quit the game.
+3. NPC interaction: I put npcs in some rooms, game will tell players when they enter the room or each time they use 'look' command. Players can use 'talk' command to talk to them, or use 'give [item name]' command to give specific things to npcs for trading. The game will issues an error message to tell players that they can't talk to nobody or give unnecessary item to npcs.
+4. All extensions can take effect by reading my own mapfile: asset.map, without effecting the baseline and the original loop.map.
