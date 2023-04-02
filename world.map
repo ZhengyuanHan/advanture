@@ -2,7 +2,7 @@
  {"name": "snowfield",
   "desc": "You are in a large white snowfield, only one path points directly to the north.",
   "exits": { "north": 1},
-  "items": ["scarf", "screen fragment: shop"],
+  "items": ["scarf", "screen fragment: shop", "check"],
   "id": 0
  }
 ,
