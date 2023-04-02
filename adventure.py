@@ -37,7 +37,7 @@ if __name__ == '__main__':
     with open(map_name, 'r') as f:
         whole_map = json.load(f)
 
-    inventory_list = ['check']
+    inventory_list = []
 
     cur_room = whole_map[0]
     print_room_info(cur_room)
@@ -65,16 +65,17 @@ if __name__ == '__main__':
                         print(whole_map[room_id]['fail_dialog'])
                         break
 
-                    print('You go ' + direction + '.')
+                    print('You go ' + direction + '.' + '\n')
                     cur_room = whole_map[room_id]
                     print_room_info(cur_room)
                     print('What would you like to do?')
             else:
-                print("There's no way to go " + direction)
+                print("There's no way to go " + direction + ".")
                 print('What would you like to do?')
 
         elif re.match(r'\s*look\s*$', verb, re.I):
             print_room_info(cur_room)
+            print('What would you like to do?')
 
         elif re.match(r'\s*inventory\s*$', verb, re.I):
             if len(inventory_list) <= 0:
@@ -83,7 +84,7 @@ if __name__ == '__main__':
             else:
                 print('Inventory:')
                 for hold in inventory_list:
-                    print(hold)
+                    print(' ' + hold)
                 print('What would you like to do?')
 
         elif re.match(r'\s*get\s*$', verb, re.I):
