@@ -8,7 +8,7 @@ Stevens Email: zhan24@stevens.edu
 
 CWID: 20011343
 
-GitHub URL: 
+GitHub URL: https://github.com/ZhengyuanHan/advanture.git
 
 I spent about 9 hours on the project.
 
