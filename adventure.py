@@ -111,14 +111,18 @@ if __name__ == '__main__':
 
             elif re.match(r'\s*get\s*.+\s*$', verb, re.I):
                 item_name = re.search(r'\s*get\s*(.+)\s*$', verb, re.I).group(1).lower()
+                is_item_exist = 0
                 if 'items' in cur_room:
-                    if item_name in cur_room['items']:
-                        inventory_list.append(item_name)
-                        cur_room['items'].remove(item_name)
-                        print('You pick up the ' + item_name + '.')
 
-                        if cur_room['name'] == "branch road":
-                            cur_room['environment_desc'] = cur_room['environment_desc_backup'][0]
+                    for game_items in cur_room['items']:
+                        if game_items.lower() == item_name:
+                            is_item_exist = 1
+                            real_item_name = game_items
+
+                    if is_item_exist == 1:
+                        inventory_list.append(real_item_name)
+                        cur_room['items'].remove(real_item_name)
+                        print('You pick up the ' + real_item_name + '.')
 
                         print('What would you like to do?', end=" ")
                     else:
