@@ -8,12 +8,7 @@ def print_room_info(cur_room):
     item_str = 'Items:'
 
     print('> ' + cur_room['name'] + '\n')
-
-    if 'environment_desc' in cur_room:
-        print(cur_room['desc'])
-        print(cur_room['environment_desc'] + '\n')
-    else:
-        print(cur_room['desc'] + '\n')
+    print(cur_room['desc'] + '\n')
 
     if 'items' in cur_room and len(cur_room['items']) > 0:
         for item in cur_room['items']:
@@ -55,8 +50,10 @@ if __name__ == '__main__':
                 print("Sorry, you need to 'go' somewhere.")
                 print('What would you like to do?', end=" ")
 
-            elif re.match(r'\s*go\s*(north|south|west|east|northwest|northeast|southwest|southeast)\s*$', verb, re.I):
-                direction = re.search(r'(north|south|west|east|northwest|northeast|southwest|southeast)$', verb, re.I).group().lower()
+            # r'\s*go\s*(north|south|west|east|northwest|northeast|southwest|southeast)\s*$'
+            # r'(north|south|west|east|northwest|northeast|southwest|southeast)$'
+            elif re.match(r'\s*go\s*.+\s*$', verb, re.I):
+                direction = re.search(r'\s*go\s*(.+)\s*$', verb, re.I).group(1).lower()
                 if direction in cur_room['exits']:
                     room_id = cur_room['exits'][direction]
 
@@ -145,7 +142,7 @@ if __name__ == '__main__':
                 print('What would you like to do?', end=" ")
 
             elif re.match(r'\s*give\s*.+\s*$', verb, re.I):
-                gift_name = re.search(r'(?<=give\s).+', verb, re.I).group().lower()
+                gift_name = re.search(r'\s*give\s*(.+)\s*$', verb, re.I).group(1).lower()
                 if gift_name in inventory_list:
                     if 'require' not in cur_room['npc']:
                         print("This guy doesn't need anything.")
