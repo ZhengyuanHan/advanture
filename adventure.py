@@ -202,3 +202,4 @@ if __name__ == '__main__':
         except EOFError:
             print("Use 'quit' to exit.")
             print('What would you like to do?')
+            continue
